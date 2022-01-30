@@ -2,10 +2,13 @@ const { createSlice, configureStore } = require("@reduxjs/toolkit");
 
 const productSlice = createSlice({
   name: "product",
-  initialState: { productInfo: [] },
+  initialState: { productInfo: [], isHide: true },
   reducers: {
     fetchInfo(state, action) {
       state.productInfo = action.payload;
+    },
+    hide(state, action) {
+      state.isHide = !state.isHide;
     },
   },
 });

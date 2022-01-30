@@ -2,6 +2,7 @@ import styles from "./Tooltip.module.css";
 
 import moreInfoImg from "assets/tooltip_more.png";
 import { useSelector } from "react-redux";
+import { useState } from "react";
 
 const Tooltip = (props) => {
   const productInfo = useSelector((state) => state.productInfo.productInfo);
@@ -10,9 +11,8 @@ const Tooltip = (props) => {
 
   return (
     <span
-      className={styles.tooltip}
+      className={`${styles.tooltip} ${props.className}`}
       id={productData.productId}
-      outside={productData.outside}
     >
       <div
         className={styles.image}

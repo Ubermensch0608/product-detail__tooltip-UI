@@ -5,7 +5,6 @@ import styles from "./RoomMain.module.css";
 const RoomMain = () => {
   const productInfo = useSelector((state) => state.productInfo.productInfo);
 
-  console.log(productInfo);
   const productData = productInfo.map((data, i) => {
     return (
       <InfoHolder
