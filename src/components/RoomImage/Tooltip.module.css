@@ -69,13 +69,6 @@
   line-height: 1.2em !important;
 }
 
-.desc span:first-child {
-  color: var(--font-grey);
-  font-size: 11px;
-  font-weight: bold;
-  margin-right: 4px;
-}
-
 .desc span:last-child {
   display: flex;
   align-items: center;
@@ -94,4 +87,18 @@
 .icon img {
   width: 20px;
   height: 20px;
+}
+
+.discount {
+  color: var(--font-bright-red);
+  margin-right: 4px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.non-discount {
+  color: var(--font-grey);
+  font-size: 11px;
+  font-weight: bold;
+  margin-right: 4px;
 }

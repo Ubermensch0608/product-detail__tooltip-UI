@@ -1,20 +1,34 @@
 import styles from "./Tooltip.module.css";
+
 import moreInfoImg from "assets/tooltip_more.png";
 
 const Tooltip = (props) => {
   return (
-    <span className={styles.tooltip}>
+    <span
+      className={styles.tooltip}
+      id={props.productId}
+      outside={props.outside}
+    >
       <div
         className={styles.image}
         style={{
-          backgroundImage: `url(' https://cdn.ggumim.co.kr/cache/furniture/300/20220110174732fFP0woxpov.png')`,
+          backgroundImage: `url(${props.imageUrl})`,
         }}
       ></div>
       <div className={styles.desc}>
-        <div>루아 자수 레이스 커튼</div>
+        <div>{props.productName}</div>
         <div>
-          <span>예상가</span>
-          <span>62,900</span>
+          {!props.outside && (
+            <span className={styles["none-discount"]}>예상가</span>
+          )}
+          {props.outside && (
+            <span className={styles.discount}>{props.discountRate}%</span>
+          )}
+          {!props.outside ? (
+            <span>{props.priceOriginal}</span>
+          ) : (
+            <span>{props.priceDiscount}</span>
+          )}
         </div>
       </div>
       <div className={styles.icon}>
