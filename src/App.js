@@ -1,5 +1,7 @@
+import RoomHolder from "components/RoomHolder";
+
 const App = () => {
-  return <h1>Hello world!</h1>;
+  return <RoomHolder />;
 };
 
 export default App;

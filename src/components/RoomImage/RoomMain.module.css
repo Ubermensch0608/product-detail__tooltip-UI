@@ -1,0 +1,9 @@
+.room {
+  background-image: url(assets/main_room_image.jpeg);
+  background-position: center;
+  background-size: contain;
+  display: flex;
+  width: 800px;
+  height: 1000px;
+  cursor: pointer;
+}
