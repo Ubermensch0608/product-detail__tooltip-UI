@@ -1,0 +1,97 @@
+.tooltip::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 34px;
+  width: 12px;
+  height: 8px;
+  background-image: url(assets/tooltip_before.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1100;
+}
+
+.tooltip {
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 28px;
+  left: -20px;
+  background-color: var(--main-white);
+  width: 220px;
+  height: 86px;
+  padding: 8px 0 8px 8px;
+  margin-top: 16px;
+  border-radius: 7px;
+  box-shadow: 3px 3px 8px 0 rgb(0 0 0 / 20%);
+  font-size: 14px;
+  color: #4a4a4a;
+}
+
+.image {
+  flex-shrink: 0;
+  width: 70px;
+  height: 70px;
+  margin-right: 8px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+}
+
+.desc {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-bottom: 2px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.desc div:first-child {
+  width: 100%;
+  overflow: hidden;
+  color: var(--font-darkgrey);
+  /* white-space: nowrap; */
+  text-overflow: ellipsis;
+  line-height: 1.3em;
+}
+
+.desc div:last-child {
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.desc span {
+  line-height: 1.2em !important;
+}
+
+.desc span:first-child {
+  color: var(--font-grey);
+  font-size: 11px;
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+.desc span:last-child {
+  display: flex;
+  align-items: center;
+  color: var(--font-black);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.icon {
+  display: flex;
+  align-items: flex-end;
+  margin-top: auto;
+  margin-right: 2px;
+}
+
+.icon img {
+  width: 20px;
+  height: 20px;
+}

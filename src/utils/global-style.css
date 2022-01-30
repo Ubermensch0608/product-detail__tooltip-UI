@@ -1,0 +1,12 @@
+:root {
+  --main-white: rgba(255, 255, 255, 0.95);
+  --font-black: #181d1f;
+  --font-darkgrey: #333c45;
+  --font-grey: #898f94;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
