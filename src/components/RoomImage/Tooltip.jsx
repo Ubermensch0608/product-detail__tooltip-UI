@@ -1,33 +1,38 @@
 import styles from "./Tooltip.module.css";
 
 import moreInfoImg from "assets/tooltip_more.png";
+import { useSelector } from "react-redux";
 
 const Tooltip = (props) => {
+  const productInfo = useSelector((state) => state.productInfo.productInfo);
+
+  const productData = productInfo[props.index];
+
   return (
     <span
       className={styles.tooltip}
-      id={props.productId}
-      outside={props.outside}
+      id={productData.productId}
+      outside={productData.outside}
     >
       <div
         className={styles.image}
         style={{
-          backgroundImage: `url(${props.imageUrl})`,
+          backgroundImage: `url(${productData.imageUrl})`,
         }}
       ></div>
       <div className={styles.desc}>
-        <div>{props.productName}</div>
+        <div>{productData.productName}</div>
         <div>
-          {!props.outside && (
+          {productData.outside && (
             <span className={styles["none-discount"]}>예상가</span>
           )}
-          {props.outside && (
-            <span className={styles.discount}>{props.discountRate}%</span>
+          {!productData.outside && (
+            <span className={styles.discount}>{productData.discountRate}%</span>
           )}
-          {!props.outside ? (
-            <span>{props.priceOriginal}</span>
+          {productData.outside ? (
+            <span>{productData.priceOriginal}</span>
           ) : (
-            <span>{props.priceDiscount}</span>
+            <span>{productData.priceDiscount}</span>
           )}
         </div>
       </div>

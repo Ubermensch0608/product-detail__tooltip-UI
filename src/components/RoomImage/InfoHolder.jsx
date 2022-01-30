@@ -1,30 +1,16 @@
-import InfoButton from "layout/InfoButton";
-import { useSelector } from "react-redux";
 import Tooltip from "./Tooltip";
+import InfoButton from "layout/InfoButton";
 
-const InfoHolder = () => {
-  const productInfo = useSelector((state) => state.productInfo.productInfo);
+import styles from "./InfoHolder.module.css";
 
-  const productData = productInfo.map((data) => {
-    return (
-      <Tooltip
-        key={data.productId}
-        productId={data.productId}
-        imageUrl={data.imageUrl}
-        productName={data.productName}
-        outside={data.outside.toString()}
-        discountRate={data.discountRate}
-        priceDiscount={data.priceDiscount}
-        priceOriginal={data.priceOriginal}
-        pointX={data.pointX}
-        pointY={data.pointY}
-      />
-    );
-  });
+const InfoHolder = (props) => {
   return (
-    <div>
+    <div
+      className={styles.info}
+      style={{ top: props.pointX, left: props.pointY }}
+    >
       <InfoButton onInfo={true} />
-      <ul>{productData}</ul>
+      <Tooltip index={props.index} />
     </div>
   );
 };
