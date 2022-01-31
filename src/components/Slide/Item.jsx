@@ -4,11 +4,12 @@ import styles from "./Item.module.css";
 
 const Item = (props) => {
   const selectedItem = useSelector((state) => state.productInfo.selectedItem);
+  const isHide = useSelector((state) => state.productInfo.isHide);
 
   return (
     <div
       className={`${styles.wrapper} ${
-        props.index === selectedItem && styles.active
+        props.index === selectedItem && !isHide.isHide && styles.active
       }`}
     >
       <div
