@@ -1,13 +1,11 @@
-import { Fragment, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import RoomMain from "components/RoomImage/RoomMain";
-import SlideHolder from "components/Slide/SlideHolder";
+import RoomHolder from "components/RoomHolder";
 import { productActions } from "store";
 
 // global css 적용 - 삭제 x
 import globalStyle from "utils/global-style.css";
-import RoomHolder from "components/RoomHolder";
 
 const App = () => {
   const dispatch = useDispatch();

@@ -9,6 +9,9 @@ import styles from "./InfoHolder.module.css";
 const InfoHolder = (props) => {
   const dispatch = useDispatch();
   const isHide = useSelector((state) => state.productInfo.isHide);
+  const selectedSlideItem = useSelector(
+    (state) => state.productInfo.selectedItem
+  );
 
   const openHandler = (e) => {
     if (isHide.productNumber === undefined) {
@@ -26,7 +29,6 @@ const InfoHolder = (props) => {
         })
       );
     } else {
-      console.log(e.target.id);
       dispatch(
         productActions.hide({
           productNumber: props.index,
@@ -34,9 +36,12 @@ const InfoHolder = (props) => {
         })
       );
     }
+    if (selectedSlideItem !== props.index) {
+      dispatch(productActions.select(props.index));
+    } else {
+      dispatch(productActions.select(null));
+    }
   };
-
-  console.log(isHide);
 
   return (
     <div

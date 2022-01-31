@@ -6,9 +6,34 @@ import styles from "./SlideHolder.module.css";
 const SlideHolder = () => {
   const dispatch = useDispatch();
   const productData = useSelector((state) => state.productInfo.productInfo);
+  const isHide = useSelector((state) => state.productInfo.isHide);
 
   const ItemArr = productData.map((data, index) => {
-    const selectItemHandler = () => {
+    const selectItemHandler = (e) => {
+      if (isHide.productNumber === undefined) {
+        dispatch(
+          productActions.hide({
+            productNumber: index,
+            isHide: false,
+          })
+        );
+      } else if (index !== isHide.productNumber) {
+        dispatch(
+          productActions.hide({
+            productNumber: index,
+            isHide: false,
+          })
+        );
+      } else {
+        console.log(e.target.id);
+        dispatch(
+          productActions.hide({
+            productNumber: index,
+            isHide: !isHide.isHide,
+          })
+        );
+      }
+
       dispatch(productActions.select(index));
     };
 
