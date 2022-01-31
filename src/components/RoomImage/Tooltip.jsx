@@ -33,9 +33,9 @@ const Tooltip = (props) => {
             <span className={styles.discount}>{productData.discountRate}%</span>
           )}
           {productData.outside ? (
-            <span>{productData.priceOriginal}</span>
+            <span>{productData.priceOriginal.toLocaleString()}</span>
           ) : (
-            <span>{productData.priceDiscount}</span>
+            <span>{productData.priceDiscount.toLocaleString()}</span>
           )}
         </div>
       </div>
