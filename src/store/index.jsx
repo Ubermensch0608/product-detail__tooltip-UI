@@ -5,6 +5,7 @@ const productSlice = createSlice({
   initialState: {
     productInfo: [],
     isHide: { productNumber: undefined, isHide: true },
+    selectedItem: [],
   },
   reducers: {
     fetchInfo(state, action) {
@@ -12,6 +13,9 @@ const productSlice = createSlice({
     },
     hide(state, action) {
       state.isHide = action.payload;
+    },
+    select(state, action) {
+      state.selectedItem = action.payload;
     },
   },
 });
