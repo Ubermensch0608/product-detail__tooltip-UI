@@ -9,44 +9,31 @@ const SlideHolder = () => {
   const isHide = useSelector((state) => state.productInfo.isHide);
 
   const ItemArr = productData.map((data, index) => {
-    const selectItemHandler = (e) => {
-      if (isHide.productNumber === undefined) {
-        dispatch(
-          productActions.hide({
-            productNumber: index,
-            isHide: false,
-          })
-        );
-      } else if (index !== isHide.productNumber) {
-        dispatch(
-          productActions.hide({
-            productNumber: index,
-            isHide: false,
-          })
-        );
+    const selectItemHandler = () => {
+      if (isHide !== index) {
+        dispatch(productActions.hide(index));
       } else {
-        console.log(e.target.id);
-        dispatch(
-          productActions.hide({
-            productNumber: index,
-            isHide: !isHide.isHide,
-          })
-        );
+        dispatch(productActions.hide(null));
       }
 
-      dispatch(productActions.select(index));
+      if (isHide !== index) {
+        dispatch(productActions.select(index));
+      } else {
+        dispatch(productActions.select(null));
+      }
     };
 
     return (
       <Item
         key={data.productId}
+        index={index}
+        onClick={selectItemHandler}
         imageUrl={data.imageUrl}
         discountRate={data.discountRate}
-        onClick={selectItemHandler}
-        index={index}
       />
     );
   });
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.slide}>{ItemArr}</div>

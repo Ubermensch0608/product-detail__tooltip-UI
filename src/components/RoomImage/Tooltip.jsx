@@ -11,10 +11,7 @@ const Tooltip = ({ index }) => {
 
   return (
     <span
-      className={`${styles.tooltip}  ${
-        (isHide.productNumber !== index && styles.hide) ||
-        (isHide.isHide && styles.hide)
-      }`}
+      className={`${styles.tooltip}  ${isHide !== index && styles.hide}`}
       id={productData.productId}
     >
       <div

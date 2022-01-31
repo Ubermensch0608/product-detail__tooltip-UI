@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Tooltip from "./Tooltip";
@@ -12,30 +13,21 @@ const InfoHolder = ({ index, pointX, pointY }) => {
   const selectedSlideItem = useSelector(
     (state) => state.productInfo.selectedItem
   );
+  const [btnId, setBtnId] = useState(10);
 
   const openHandler = (e) => {
-    if (isHide.productNumber === undefined) {
-      dispatch(
-        productActions.hide({
-          productNumber: index,
-          isHide: false,
-        })
-      );
-    } else if (e.target.id != isHide.productNumber) {
-      dispatch(
-        productActions.hide({
-          productNumber: index,
-          isHide: false,
-        })
-      );
+    setBtnId(e.target.id);
+
+    if (selectedSlideItem !== index) {
+      dispatch(productActions.hide(index));
     } else {
-      dispatch(
-        productActions.hide({
-          productNumber: index,
-          isHide: !isHide.isHide,
-        })
-      );
+      dispatch(productActions.hide(null));
     }
+
+    slideItemHandler();
+  };
+
+  const slideItemHandler = () => {
     if (selectedSlideItem !== index) {
       dispatch(productActions.select(index));
     } else {
@@ -45,11 +37,12 @@ const InfoHolder = ({ index, pointX, pointY }) => {
 
   return (
     <div className={styles.info} style={{ top: pointX, left: pointY }}>
-      <InfoButton
-        id={index}
-        onInfo={index === isHide.productNumber && !isHide.isHide}
-        onClick={openHandler}
-      />
+      {btnId != isHide && (
+        <InfoButton id={index} type="info" onClick={openHandler} />
+      )}
+      {btnId == isHide && (
+        <InfoButton id={index} type="close" onClick={openHandler} />
+      )}
       <Tooltip index={index} />
     </div>
   );

@@ -4,7 +4,7 @@ const productSlice = createSlice({
   name: "product",
   initialState: {
     productInfo: [],
-    isHide: { productNumber: undefined, isHide: true },
+    isHide: null,
     selectedItem: null,
   },
   reducers: {
