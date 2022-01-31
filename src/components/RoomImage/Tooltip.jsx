@@ -25,9 +25,9 @@ const Tooltip = (props) => {
       ></div>
       <div className={styles.desc}>
         <div>{productData.productName}</div>
-        <div>
+        <div className={styles.price}>
           {productData.outside && (
-            <span className={styles["none-discount"]}>예상가</span>
+            <span className={`${styles["non-discount"]}`}>예상가</span>
           )}
           {!productData.outside && (
             <span className={styles.discount}>{productData.discountRate}%</span>

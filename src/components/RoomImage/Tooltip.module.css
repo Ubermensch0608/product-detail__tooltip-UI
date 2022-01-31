@@ -77,6 +77,13 @@
   font-weight: bold;
 }
 
+.price {
+  line-height: 1.2em !important;
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+}
+
 .icon {
   display: flex;
   align-items: flex-end;
