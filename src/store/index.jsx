@@ -4,7 +4,7 @@ const productSlice = createSlice({
   name: "product",
   initialState: {
     productInfo: [],
-    isHide: { productNumber: null, isHide: true },
+    isHide: { productNumber: undefined, isHide: true },
   },
   reducers: {
     fetchInfo(state, action) {

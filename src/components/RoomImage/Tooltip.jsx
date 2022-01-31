@@ -9,12 +9,14 @@ const Tooltip = (props) => {
   const dispatch = useDispatch();
   const productInfo = useSelector((state) => state.productInfo.productInfo);
   const isHide = useSelector((state) => state.productInfo.isHide);
+
   const productData = productInfo[props.index];
 
   return (
     <span
       className={`${styles.tooltip}  ${
-        isHide.productNumber !== props.index && styles.hide
+        (isHide.productNumber !== props.index && styles.hide) ||
+        (isHide.isHide && styles.hide)
       }`}
       id={productData.productId}
     >

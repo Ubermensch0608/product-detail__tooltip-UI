@@ -11,12 +11,29 @@ const InfoHolder = (props) => {
   const isHide = useSelector((state) => state.productInfo.isHide);
 
   const openHandler = (e) => {
-    dispatch(
-      productActions.hide({
-        productNumber: props.index,
-        isHide: !isHide.isHide,
-      })
-    );
+    if (isHide.productNumber === undefined) {
+      dispatch(
+        productActions.hide({
+          productNumber: props.index,
+          isHide: false,
+        })
+      );
+    } else if (e.target.id != isHide.productNumber) {
+      dispatch(
+        productActions.hide({
+          productNumber: props.index,
+          isHide: false,
+        })
+      );
+    } else {
+      console.log(e.target.id);
+      dispatch(
+        productActions.hide({
+          productNumber: props.index,
+          isHide: !isHide.isHide,
+        })
+      );
+    }
   };
 
   console.log(isHide);
@@ -26,7 +43,11 @@ const InfoHolder = (props) => {
       className={styles.info}
       style={{ top: props.pointX, left: props.pointY }}
     >
-      <InfoButton id={props.index} onInfo={true} onClick={openHandler} />
+      <InfoButton
+        id={props.index}
+        onInfo={props.index === isHide.productNumber && !isHide.isHide}
+        onClick={openHandler}
+      />
       <Tooltip index={props.index} />
     </div>
   );
