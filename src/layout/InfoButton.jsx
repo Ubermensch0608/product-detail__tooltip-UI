@@ -3,11 +3,11 @@ import close_button from "assets/x_button.png";
 
 import styles from "./InfoButton.module.css";
 
-const InfoButton = (props) => {
+const InfoButton = ({ onInfo, id, onClick }) => {
   return (
-    <div className={styles.button} onClick={props.onClick}>
-      {!props.onInfo && <img id={props.id} src={info_button} alt="info" />}
-      {props.onInfo && <img id={props.id} src={close_button} alt="close" />}
+    <div className={styles.button} onClick={onClick}>
+      {!onInfo && <img id={id} src={info_button} alt="info" />}
+      {onInfo && <img id={id} src={close_button} alt="close" />}
     </div>
   );
 };

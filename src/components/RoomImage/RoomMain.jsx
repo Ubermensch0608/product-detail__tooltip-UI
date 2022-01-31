@@ -6,11 +6,11 @@ import styles from "./RoomMain.module.css";
 const RoomMain = () => {
   const productInfo = useSelector((state) => state.productInfo.productInfo);
 
-  const productData = productInfo.map((data, i) => {
+  const productData = productInfo.map((data, index) => {
     return (
       <InfoHolder
         key={data.productId}
-        index={i}
+        index={index}
         pointX={data.pointX}
         pointY={data.pointY}
       />

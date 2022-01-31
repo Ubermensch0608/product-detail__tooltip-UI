@@ -3,16 +3,16 @@ import moreInfoImg from "assets/tooltip_more.png";
 
 import styles from "./Tooltip.module.css";
 
-const Tooltip = (props) => {
+const Tooltip = ({ index }) => {
   const productInfo = useSelector((state) => state.productInfo.productInfo);
   const isHide = useSelector((state) => state.productInfo.isHide);
 
-  const productData = productInfo[props.index];
+  const productData = productInfo[index];
 
   return (
     <span
       className={`${styles.tooltip}  ${
-        (isHide.productNumber !== props.index && styles.hide) ||
+        (isHide.productNumber !== index && styles.hide) ||
         (isHide.isHide && styles.hide)
       }`}
       id={productData.productId}
