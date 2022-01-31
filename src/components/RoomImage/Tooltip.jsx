@@ -1,17 +1,21 @@
 import styles from "./Tooltip.module.css";
 
 import moreInfoImg from "assets/tooltip_more.png";
-import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { productActions } from "store";
 
 const Tooltip = (props) => {
+  const dispatch = useDispatch();
   const productInfo = useSelector((state) => state.productInfo.productInfo);
-
+  const isHide = useSelector((state) => state.productInfo.isHide);
   const productData = productInfo[props.index];
 
   return (
     <span
-      className={`${styles.tooltip} ${props.className}`}
+      className={`${styles.tooltip}  ${
+        isHide.productNumber !== props.index && styles.hide
+      }`}
       id={productData.productId}
     >
       <div

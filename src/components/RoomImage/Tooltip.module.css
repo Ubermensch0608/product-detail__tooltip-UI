@@ -102,3 +102,7 @@
   font-weight: bold;
   margin-right: 4px;
 }
+
+.hide {
+  display: none;
+}
