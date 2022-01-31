@@ -1,0 +1,11 @@
+.room {
+  position: relative;
+  display: inline-block;
+
+  cursor: pointer;
+}
+
+.room > img {
+  width: 800px;
+  height: auto;
+}
