@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import RoomHolder from "components/RoomHolder";
 import { productActions } from "store";
+import RoomHolder from "components/RoomHolder";
+// global css 적용 - 삭제 x
+import globalStyle from "utils/global-style.css";
 
 const App = () => {
   const dispatch = useDispatch();

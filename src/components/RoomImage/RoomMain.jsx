@@ -3,7 +3,7 @@ import InfoHolder from "./InfoHolder";
 
 import styles from "./RoomMain.module.css";
 
-const RoomMain = (props) => {
+const RoomMain = () => {
   const productInfo = useSelector((state) => state.productInfo.productInfo);
 
   const productData = productInfo.map((data, i) => {
