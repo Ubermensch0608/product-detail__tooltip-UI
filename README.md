@@ -25,10 +25,12 @@ Front
 
 ### 🗂 폴더 구조
 
+---
+
     src
     ├─ components
     │          ├ RoomImage
-    ├ layout   │
+    ├ layout │
     │          └ Slide
     ├ store
     │
@@ -37,6 +39,8 @@ Front
     └ App.js
 
 ### 🎈 기능 설명
+
+---
 
 [x] 가구 정보가 있는 곳에 돋보기 모양의 버튼을 표시
 
@@ -54,6 +58,8 @@ Front
 [x] 할인율이 존재하는 경우에는 상단에 할인율(discountRate) 표시
 
 ### 👊 문제 해결 사항
+
+---
 
 - 하나의 tool tip만 나타나게 하는 기능 구현
   - 문제점: **클릭한**버튼에 해당하는 tool tip만 나타나게 하는 것에 대한 어려움
