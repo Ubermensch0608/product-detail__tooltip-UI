@@ -1,10 +1,10 @@
+import { useDispatch, useSelector } from "react-redux";
+
 import Tooltip from "./Tooltip";
 import InfoButton from "layout/InfoButton";
+import { productActions } from "store";
 
 import styles from "./InfoHolder.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { productActions } from "store";
-import { useEffect } from "react";
 
 const InfoHolder = (props) => {
   const dispatch = useDispatch();

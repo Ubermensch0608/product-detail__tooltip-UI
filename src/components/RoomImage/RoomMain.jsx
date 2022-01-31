@@ -1,13 +1,10 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { productActions } from "store";
+import { useSelector } from "react-redux";
 import InfoHolder from "./InfoHolder";
+
 import styles from "./RoomMain.module.css";
 
 const RoomMain = (props) => {
-  const dispatch = useDispatch();
   const productInfo = useSelector((state) => state.productInfo.productInfo);
-  const isHide = useSelector((state) => state.productInfo.isHide);
 
   const productData = productInfo.map((data, i) => {
     return (

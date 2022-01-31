@@ -1,8 +1,8 @@
-import RoomHolder from "components/RoomHolder";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+
+import RoomHolder from "components/RoomHolder";
 import { productActions } from "store";
-import globalStyle from "utils/global-style.css";
 
 const App = () => {
   const dispatch = useDispatch();
