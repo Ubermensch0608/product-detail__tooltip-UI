@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import RoomHolder from "components/RoomHolder";
-import { productActions } from "store";
+import { productActions } from "store/index";
 
 // global css 적용 - 삭제 x
 import globalStyle from "utils/global-style.css";
