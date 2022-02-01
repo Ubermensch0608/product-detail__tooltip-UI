@@ -2,7 +2,7 @@
 
 ### 👍 배포 주소
 
-<a href="https://nervous-mestorf-40df22.netlify.app/" target="_blank">집꾸미기 일부 기능 구현 - 배포 주소</a>
+<a href="https://nervous-mestorf-40df22.netlify.app/" target="_blank">React로 구현한 집꾸미기 일부 기능 배포 주소</a>
 
 
 ### 🎠 구현 기능
