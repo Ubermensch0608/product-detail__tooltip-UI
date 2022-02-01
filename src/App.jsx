@@ -5,7 +5,6 @@ import RoomHolder from "components/RoomHolder";
 import { productActions } from "store/index";
 
 // global css 적용 - 삭제 x
-import globalStyle from "utils/global-style.css";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -20,7 +19,7 @@ const App = () => {
     }
 
     fetchProductInfo();
-  }, []);
+  }, [dispatch]);
 
   return <RoomHolder />;
 };

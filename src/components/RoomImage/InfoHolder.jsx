@@ -13,7 +13,7 @@ const InfoHolder = ({ index, pointX, pointY }) => {
   const selectedSlideItem = useSelector(
     (state) => state.productInfo.selectedItem
   );
-  const [btnId, setBtnId] = useState(10);
+  const [btnId, setBtnId] = useState("");
 
   const openHandler = (e) => {
     setBtnId(e.target.id);
@@ -40,10 +40,10 @@ const InfoHolder = ({ index, pointX, pointY }) => {
       className={styles.info}
       style={{ top: pointX * 1.5951219512, left: pointY * 1.6288513891 }}
     >
-      {btnId != isHide && (
+      {Number(btnId) !== isHide && (
         <InfoButton id={index} type="info" onClick={openHandler} />
       )}
-      {btnId == isHide && (
+      {Number(btnId) === isHide && (
         <InfoButton id={index} type="close" onClick={openHandler} />
       )}
       <Tooltip index={index} />
