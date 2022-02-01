@@ -36,7 +36,10 @@ const InfoHolder = ({ index, pointX, pointY }) => {
   };
 
   return (
-    <div className={styles.info} style={{ top: pointX, left: pointY }}>
+    <div
+      className={styles.info}
+      style={{ top: pointX * 1.5951219512, left: pointY * 1.6288513891 }}
+    >
       {btnId != isHide && (
         <InfoButton id={index} type="info" onClick={openHandler} />
       )}
