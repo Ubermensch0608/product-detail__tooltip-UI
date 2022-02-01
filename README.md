@@ -1,5 +1,13 @@
 # 집 소개기능 - 사진과 가구 정보 조합
 
+### 👍 배포 주소
+
+### 🎠 구현 기능
+
+---
+
+![구현기능](https://user-images.githubusercontent.com/93258739/151914762-2e61bc19-7796-4c7a-b270-a24acaf67bda.gif)
+
 ### ✨사용 기술
 
 ---
@@ -48,8 +56,7 @@ Front
 
 [x]닫기 버튼을 클릭하면 tool tip을 없애고 돋보기 버튼으로 변경
 
-[x] tool tip은 하나만 노출. tool tip이 노출되고 있는 상태에서 다른 가구를 선택하면 노출되고, <br/>
-있던 tool tip은 닫히고 새로 클릭한 가구 tool tip만 노출
+[x] tool tip은 하나만 노출. tool tip이 노출되고 있는 상태에서 다른 가구를 선택하면 노출되고, 있던 tool tip은 닫히고 새로 클릭한 가구 tool tip만 노출
 
 [x] 하단에 있는 상품목록에서 해당 가구가 선택되었으면 tool tip 출력
 
