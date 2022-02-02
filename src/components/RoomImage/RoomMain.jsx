@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import InfoHolder from "./InfoHolder";
 
@@ -7,14 +8,7 @@ const RoomMain = () => {
   const productInfo = useSelector((state) => state.productInfo.productInfo);
 
   const productData = productInfo.map((data, index) => {
-    return (
-      <InfoHolder
-        key={data.productId}
-        index={index}
-        pointX={data.pointX}
-        pointY={data.pointY}
-      />
-    );
+    return <InfoHolder key={data.productId} index={index} />;
   });
 
   return (

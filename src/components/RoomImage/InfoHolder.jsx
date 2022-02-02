@@ -7,12 +7,14 @@ import { productActions } from "store";
 
 import styles from "./InfoHolder.module.css";
 
-const InfoHolder = ({ index, pointX, pointY }) => {
+const InfoHolder = ({ index }) => {
   const dispatch = useDispatch();
+  const productInfo = useSelector((state) => state.productInfo.productInfo);
   const isHide = useSelector((state) => state.productInfo.isHide);
   const selectedSlideItem = useSelector(
     (state) => state.productInfo.selectedItem
   );
+
   const [btnId, setBtnId] = useState("");
 
   const openHandler = (e) => {
@@ -38,7 +40,10 @@ const InfoHolder = ({ index, pointX, pointY }) => {
   return (
     <div
       className={styles.info}
-      style={{ top: pointX * 1.5951219512, left: pointY * 1.6288513891 }}
+      style={{
+        top: productInfo[index].pointX * 1.5951219512,
+        left: productInfo[index].pointY * 1.6288513891,
+      }}
     >
       {Number(btnId) !== isHide && (
         <InfoButton id={index} type="info" onClick={openHandler} />
