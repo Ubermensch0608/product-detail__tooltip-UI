@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import RoomHolder from "components/RoomHolder";
 import { productActions } from "store/index";
+import RoomMain from "components/RoomImage/RoomMain";
+import SlideHolder from "components/Slide/SlideHolder";
 
+import styles from "./Add.module.css";
 // global css 적용 - 삭제 x
 
 const App = () => {
@@ -21,7 +23,12 @@ const App = () => {
     fetchProductInfo();
   }, [dispatch]);
 
-  return <RoomHolder />;
+  return (
+    <div className={styles.main}>
+      <RoomMain />
+      <SlideHolder />
+    </div>
+  );
 };
 
 export default App;

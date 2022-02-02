@@ -5,14 +5,18 @@ import styles from "./Tooltip.module.css";
 
 const Tooltip = ({ index }) => {
   const productInfo = useSelector((state) => state.productInfo.productInfo);
-  const isHide = useSelector((state) => state.productInfo.isHide);
+
+  const selectedRoomItem = useSelector(
+    (state) => state.productInfo.selectedRoomItem
+  );
 
   const productData = productInfo[index];
 
   return (
     <span
-      className={`${styles.tooltip}  ${isHide !== index && styles.hide}`}
-      id={productData.productId}
+      className={`${styles.tooltip}  ${
+        selectedRoomItem !== index && styles.hide
+      }`}
     >
       <div
         className={styles.image}

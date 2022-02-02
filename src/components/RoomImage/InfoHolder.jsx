@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Tooltip from "./Tooltip";
@@ -10,30 +9,19 @@ import styles from "./InfoHolder.module.css";
 const InfoHolder = ({ index }) => {
   const dispatch = useDispatch();
   const productInfo = useSelector((state) => state.productInfo.productInfo);
-  const isHide = useSelector((state) => state.productInfo.isHide);
-  const selectedSlideItem = useSelector(
-    (state) => state.productInfo.selectedItem
+  const selectedRoomItem = useSelector(
+    (state) => state.productInfo.selectedRoomItem
   );
 
-  const [btnId, setBtnId] = useState("");
+  const ItemOpenHandler = (e) => {
+    const selectedId = Number(e.target.id);
 
-  const openHandler = (e) => {
-    setBtnId(e.target.id);
-
-    if (selectedSlideItem !== index) {
-      dispatch(productActions.hide(index));
+    if (selectedId !== selectedRoomItem) {
+      dispatch(productActions.room(index));
+      dispatch(productActions.slide(index));
     } else {
-      dispatch(productActions.hide(null));
-    }
-
-    slideItemHandler();
-  };
-
-  const slideItemHandler = () => {
-    if (selectedSlideItem !== index) {
-      dispatch(productActions.select(index));
-    } else {
-      dispatch(productActions.select(null));
+      dispatch(productActions.room(null));
+      dispatch(productActions.slide(null));
     }
   };
 
@@ -45,11 +33,11 @@ const InfoHolder = ({ index }) => {
         left: productInfo[index].pointY * 1.6288513891,
       }}
     >
-      {Number(btnId) !== isHide && (
-        <InfoButton id={index} type="info" onClick={openHandler} />
+      {selectedRoomItem !== index && (
+        <InfoButton id={index} type="info" onClick={ItemOpenHandler} />
       )}
-      {Number(btnId) === isHide && (
-        <InfoButton id={index} type="close" onClick={openHandler} />
+      {selectedRoomItem === index && (
+        <InfoButton id={index} type="close" onClick={ItemOpenHandler} />
       )}
       <Tooltip index={index} />
     </div>
