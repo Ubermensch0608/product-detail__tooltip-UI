@@ -1,13 +1,10 @@
 .wrapper {
   display: flex;
   align-items: center;
-  overflow-y: hidden;
-  overflow-x: auto;
 
   padding: 0 10px;
 
-  transition-duration: 0ms;
-  transform: translate3d(0px, 0px, 0px);
+  border-color: #fff;
 }
 
 .slide {
@@ -17,6 +14,7 @@
   height: 100%;
   z-index: 1;
   display: flex;
-  transition-property: transform;
   box-sizing: content-box;
+
+  align-items: center;
 }
