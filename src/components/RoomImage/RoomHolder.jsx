@@ -1,20 +1,13 @@
 import { useSelector } from "react-redux";
 import InfoHolder from "./InfoHolder";
 
-import styles from "./RoomMain.module.css";
+import styles from "./RoomHolder.module.css";
 
-const RoomMain = () => {
+const RoomHolder = () => {
   const productInfo = useSelector((state) => state.productInfo.productInfo);
 
   const productData = productInfo.map((data, index) => {
-    return (
-      <InfoHolder
-        key={data.productId}
-        index={index}
-        pointX={data.pointX}
-        pointY={data.pointY}
-      />
-    );
+    return <InfoHolder key={data.productId} index={index} />;
   });
 
   return (
@@ -28,4 +21,4 @@ const RoomMain = () => {
   );
 };
 
-export default RoomMain;
+export default RoomHolder;

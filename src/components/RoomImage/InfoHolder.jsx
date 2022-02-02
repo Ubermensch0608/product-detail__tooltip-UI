@@ -1,50 +1,43 @@
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import Tooltip from "./Tooltip";
-import InfoButton from "layout/InfoButton";
 import { productActions } from "store";
+import InfoButton from "layout/InfoButton";
 
 import styles from "./InfoHolder.module.css";
+import Tooltip from "./Tooltip";
 
-const InfoHolder = ({ index, pointX, pointY }) => {
+const InfoHolder = ({ index }) => {
   const dispatch = useDispatch();
-  const isHide = useSelector((state) => state.productInfo.isHide);
-  const selectedSlideItem = useSelector(
-    (state) => state.productInfo.selectedItem
+  const productInfo = useSelector((state) => state.productInfo.productInfo);
+  const selectedRoomItem = useSelector(
+    (state) => state.productInfo.selectedRoomItem
   );
-  const [btnId, setBtnId] = useState("");
 
-  const openHandler = (e) => {
-    setBtnId(e.target.id);
+  const ItemOpenHandler = (e) => {
+    const selectedId = Number(e.target.id);
 
-    if (selectedSlideItem !== index) {
-      dispatch(productActions.hide(index));
+    if (selectedId !== selectedRoomItem) {
+      dispatch(productActions.room(index));
+      dispatch(productActions.slide(index));
     } else {
-      dispatch(productActions.hide(null));
-    }
-
-    slideItemHandler();
-  };
-
-  const slideItemHandler = () => {
-    if (selectedSlideItem !== index) {
-      dispatch(productActions.select(index));
-    } else {
-      dispatch(productActions.select(null));
+      dispatch(productActions.room(null));
+      dispatch(productActions.slide(null));
     }
   };
 
   return (
     <div
       className={styles.info}
-      style={{ top: pointX * 1.5951219512, left: pointY * 1.6288513891 }}
+      style={{
+        top: productInfo[index].pointX * 1.5951219512,
+        left: productInfo[index].pointY * 1.6288513891,
+      }}
     >
-      {Number(btnId) !== isHide && (
-        <InfoButton id={index} type="info" onClick={openHandler} />
+      {selectedRoomItem !== index && (
+        <InfoButton id={index} type="info" onClick={ItemOpenHandler} />
       )}
-      {Number(btnId) === isHide && (
-        <InfoButton id={index} type="close" onClick={openHandler} />
+      {selectedRoomItem === index && (
+        <InfoButton id={index} type="close" onClick={ItemOpenHandler} />
       )}
       <Tooltip index={index} />
     </div>

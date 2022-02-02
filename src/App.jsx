@@ -1,13 +1,16 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import RoomHolder from "components/RoomHolder";
 import { productActions } from "store/index";
+import RoomHolder from "components/RoomImage/RoomHolder";
+import SlideHolder from "components/Slide/SlideHolder";
 
+import styles from "./Add.module.css";
 // global css 적용 - 삭제 x
 
 const App = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     async function fetchProductInfo() {
       const response = await fetch(
@@ -21,7 +24,12 @@ const App = () => {
     fetchProductInfo();
   }, [dispatch]);
 
-  return <RoomHolder />;
+  return (
+    <div className={styles.main}>
+      <RoomHolder />
+      <SlideHolder />
+    </div>
+  );
 };
 
 export default App;

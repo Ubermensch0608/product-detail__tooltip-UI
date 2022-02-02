@@ -4,18 +4,22 @@ const productSlice = createSlice({
   name: "product",
   initialState: {
     productInfo: [],
-    isHide: null,
-    selectedItem: null,
+    selectedRoomItem: null,
+    selectedSlideItem: null,
+    test: [],
   },
   reducers: {
     fetchInfo(state, action) {
       state.productInfo = action.payload;
     },
-    hide(state, action) {
-      state.isHide = action.payload;
+    room(state, action) {
+      state.selectedRoomItem = action.payload;
     },
-    select(state, action) {
-      state.selectedItem = action.payload;
+    slide(state, action) {
+      state.selectedSlideItem = action.payload;
+    },
+    test(state, action) {
+      state.test = action.payload;
     },
   },
 });
