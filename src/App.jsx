@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import { productActions } from "store/index";
-import RoomMain from "components/RoomImage/RoomMain";
+import RoomHolder from "components/RoomImage/RoomHolder";
 import SlideHolder from "components/Slide/SlideHolder";
 
 import styles from "./Add.module.css";
@@ -10,6 +10,7 @@ import styles from "./Add.module.css";
 
 const App = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     async function fetchProductInfo() {
       const response = await fetch(
@@ -25,7 +26,7 @@ const App = () => {
 
   return (
     <div className={styles.main}>
-      <RoomMain />
+      <RoomHolder />
       <SlideHolder />
     </div>
   );

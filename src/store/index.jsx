@@ -6,6 +6,7 @@ const productSlice = createSlice({
     productInfo: [],
     selectedRoomItem: null,
     selectedSlideItem: null,
+    test: [],
   },
   reducers: {
     fetchInfo(state, action) {
@@ -16,6 +17,9 @@ const productSlice = createSlice({
     },
     slide(state, action) {
       state.selectedSlideItem = action.payload;
+    },
+    test(state, action) {
+      state.test = action.payload;
     },
   },
 });

@@ -30,6 +30,16 @@
   color: #4a4a4a;
 }
 
+.downtip::before {
+  top: unset;
+  bottom: -8px;
+  transform: rotate(180deg);
+}
+.downtip {
+  top: unset;
+  bottom: 52px;
+}
+
 .image {
   flex-shrink: 0;
   width: 70px;

@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import Tooltip from "./Tooltip";
-import InfoButton from "layout/InfoButton";
 import { productActions } from "store";
+import InfoButton from "layout/InfoButton";
 
 import styles from "./InfoHolder.module.css";
+import Tooltip from "./Tooltip";
 
 const InfoHolder = ({ index }) => {
   const dispatch = useDispatch();
