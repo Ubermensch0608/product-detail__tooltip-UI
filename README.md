@@ -39,15 +39,16 @@ Front
 ---
 
     src
-    ├─ components
-    │          ├ RoomImage
-    ├ layout │
-    │          └ Slide
-    ├ store
+    ├─ assets/
+    ├─ components/
+    │          ├ RoomImage/
+    ├ layout/  │
+    │          └ Slide/
+    ├ store/
     │
-    ├ utils
+    ├ utils/
     │
-    └ App.js
+    └ App.jsx, index.js
 
 ### 🎈 기능 설명
 
@@ -67,11 +68,21 @@ Front
 
 [x] 할인율이 존재하는 경우에는 상단에 할인율(discountRate) 표시
 
-### 👊 문제 해결 사항
+### 👊 과제 해결 포인트
 
 ---
 
-- 하나의 tool tip만 나타나게 하는 기능 구현
+- 재사용 가능한 컴포넌트 중심으로 구현
+        - 여러 번 쓰일 수 있는 컴포넌트는 재사용할 수 있는 컴포넌트로 만들어 쉬운 재사용과 유지보수의 용의성을 높였다.        
+
+- 불필요한 props chanin 최소화
+        - redux toolkit을 이용하여 전역적으로 state를 관리하였다.
+        - 이로 인해 이후 기능을 개선 시 쉬운 코드 리딩과 비효율성의 방지, 보다 쉬운 유지보수가 기대된다.      
+                     
+- 불필요한 로직 및 깔끔한 코드 지향
+        -  꾸준한 Refactoring으로 불필요한 코드 및 props 등 제거 및 교체
+                     
+- 기능 구현에 대한 고민
   - 문제점: **클릭한**버튼에 해당하는 tool tip만 나타나게 하는 것에 대한 어려움
   - 개선 과정
     - 각 tool tip의 세부 사항을 결정 짓는 것이 무엇인지 고민해봄
